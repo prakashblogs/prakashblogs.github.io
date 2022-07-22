@@ -52,10 +52,10 @@ services:
      - &amp;#34;sqlservervolume:/var/opt/mssql&amp;#34;
 volumes:
  sqlservervolume:
-&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;Set your desired password in &lt;em&gt;SA_PASSWORD&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/blockquote&gt;
 &lt;h4 id=&#34;running-the-compose-file&#34;&gt;Running the compose file&lt;/h4&gt;
 &lt;p&gt;We will run the &lt;code&gt;docker-compose&lt;/code&gt; command and pass the &lt;code&gt;sqlserver.yml&lt;/code&gt; file as argument.
 But before that make sure you have opened a CLI and you are in the same directory as the compose file. Then run the following command&lt;/p&gt;
