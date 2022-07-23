@@ -41,7 +41,7 @@
 &lt;pre&gt;&lt;code&gt;version: &amp;quot;3&amp;quot;
 services:
  sqlserver:
-   image: &amp;quot;mcr.microsoft.com/mssql/&amp;gt;server:2019-latest&amp;quot;
+   image: &amp;quot;mcr.microsoft.com/mssql/server:2019-latest&amp;quot;
    container_name: sql
    environment:
      SA_PASSWORD: &amp;quot;myPassword8&amp;quot;
