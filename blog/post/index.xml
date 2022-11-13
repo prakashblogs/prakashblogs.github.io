@@ -8,74 +8,366 @@
     <language>en</language>
     <managingEditor>prakashdubey1999@gmail.com (Prakash Dubey)</managingEditor>
     <webMaster>prakashdubey1999@gmail.com (Prakash Dubey)</webMaster>
-    <lastBuildDate>Fri, 22 Jul 2022 12:36:33 +0530</lastBuildDate><atom:link href="https://prakashblogs.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Nov 2022 15:08:44 +0530</lastBuildDate><atom:link href="https://prakashblogs.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Testing the Theme</title>
-      <link>https://prakashblogs.github.io/blog/post/testing-the-theme/</link>
-      <pubDate>Fri, 22 Jul 2022 12:36:33 +0530</pubDate>
+      <title>Wish</title>
+      <link>https://prakashblogs.github.io/blog/post/wish/</link>
+      <pubDate>Sat, 12 Nov 2022 15:08:44 +0530</pubDate>
       <author>prakashdubey1999@gmail.com (Prakash Dubey)</author>
-      <guid>https://prakashblogs.github.io/blog/post/testing-the-theme/</guid>
+      <guid>https://prakashblogs.github.io/blog/post/wish/</guid>
       
-      <description>&lt;p&gt;Testing out the theme features&lt;/p&gt;
+      <description>&lt;p&gt;If god ever comes in my dream&lt;br&gt;
+And offers to grant me a wish&lt;br&gt;
+I would wish for&lt;br&gt;
+The endurance of a woman&lt;br&gt;
+Who has seen her rapist&lt;br&gt;
+In the eyes&lt;br&gt;
+Fought back&lt;br&gt;
+Lived to a ripe age&lt;/p&gt;
+&lt;p&gt;— PD&lt;/p&gt;
 </description>
       
     </item>
     
     <item>
-      <title>Spin Up a MsSQL Server in Docker</title>
-      <link>https://prakashblogs.github.io/blog/post/spin-up-a-mssql-server-in-docker/</link>
-      <pubDate>Sun, 17 Jul 2022 23:36:54 +0530</pubDate>
+      <title>Grief</title>
+      <link>https://prakashblogs.github.io/blog/post/grief/</link>
+      <pubDate>Mon, 19 Sep 2022 10:48:49 +0530</pubDate>
       <author>prakashdubey1999@gmail.com (Prakash Dubey)</author>
-      <guid>https://prakashblogs.github.io/blog/post/spin-up-a-mssql-server-in-docker/</guid>
+      <guid>https://prakashblogs.github.io/blog/post/grief/</guid>
       
-      <description>&lt;p&gt;You plan to build an application that talks to a database, but you&amp;rsquo;re procrastinating the idea because you don&amp;rsquo;t want to go through the hassle of doing all the database setup yourself.&lt;/p&gt;
-&lt;p&gt;Tadaa.., we have Docker to the rescue. Docker is an example of what we call &lt;em&gt;containerization tool&lt;/em&gt; in the technical lingo. Here we are gonna skip through the download and installation of Docker, you can find the detailed instructions depending on your machine type on their &lt;a href=&#34;https://www.docker.com/get-started/&#34;&gt;getting started&lt;/a&gt; page.&lt;/p&gt;
-&lt;p&gt;Now that we have docker running on our machine, let us go through these simple steps to run a sql server inside docker.&lt;/p&gt;
-&lt;h4 id=&#34;creating-a-docker-compose-file&#34;&gt;Creating a Docker Compose File&lt;/h4&gt;
-&lt;p&gt;A docker compose file is a simple text file with &lt;code&gt;.yml&lt;/code&gt; extension, where we write all the steps required to get our service(mssql server in our case) up and running inside docker.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Create a file and name it as &lt;em&gt;sqlserver.yml&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Open the file and paste the following&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;version: &amp;#34;3&amp;#34;
-services:
- sqlserver:
-   image: &amp;#34;mcr.microsoft.com/mssql/&amp;gt;server:2019-latest&amp;#34;
-   container_name: sql
-   environment:
-     SA_PASSWORD: &amp;#34;myPassword8&amp;#34;
-     ACCEPT_EULA: &amp;#34;Y&amp;#34;
-   ports:
-     - &amp;#34;1433:1433&amp;#34;
-   volumes:
-     - &amp;#34;sqlservervolume:/var/opt/mssql&amp;#34;
-volumes:
- sqlservervolume:
-&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Set your desired password in &lt;em&gt;SA_PASSWORD&lt;/em&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;running-the-compose-file&#34;&gt;Running the compose file&lt;/h4&gt;
-&lt;p&gt;We will run the &lt;code&gt;docker-compose&lt;/code&gt; command and pass the &lt;code&gt;sqlserver.yml&lt;/code&gt; file as argument.
-But before that make sure you have opened a CLI and you are in the same directory as the compose file. Then run the following command&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;docker-compose -f sqlserver.yml up&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&#34;port-mapping&#34;&gt;Port Mapping&lt;/h4&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Here we understand the connectivity between host machine and the docker container.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The above command will start up a new container named &lt;em&gt;sql&lt;/em&gt; where the server would be running and listening on port &lt;code&gt;1433&lt;/code&gt;. Now the question is how do we connect to the server running on the port &lt;code&gt;1433&lt;/code&gt; of the container?&lt;/p&gt;
-&lt;p&gt;To answer that we will have to understand the concept of &lt;em&gt;port mapping&lt;/em&gt;. Let us take a look at our &lt;em&gt;yml&lt;/em&gt; file, where we have a &lt;em&gt;ports&lt;/em&gt; section in which we have written &lt;code&gt;1433:1433&lt;/code&gt; what does this do?
-This is where port mapping happens. We have instructed docker that the container port &lt;code&gt;1433&lt;/code&gt; on the right of the colon), should be mapped to &lt;code&gt;1433&lt;/code&gt; port on the host machine(left hand side of the colon).&lt;/p&gt;
-&lt;p&gt;This enables us to talk to the database on &lt;code&gt;1433&lt;/code&gt; port of our machine, as it &lt;em&gt;relays&lt;/em&gt; the messages to &lt;code&gt;1433&lt;/code&gt; port inside the container.&lt;/p&gt;
-&lt;p&gt;To understand it better, we could have mapped any other free port of our host to &lt;code&gt;1433&lt;/code&gt; port of the container, like &lt;code&gt;9034:1433&lt;/code&gt; and it would still run the same, only difference is that now we would connect to the database from our application on port &lt;code&gt;9034&lt;/code&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;stopping-the-server&#34;&gt;Stopping the server&lt;/h4&gt;
-&lt;p&gt;This is all that you need to do to get started with a running database and get on with your project. Of course you would ask, how to stop the server when you don&amp;rsquo;t want to keep the database running. Since our server is being run inside docker, we will let docker handle the shutdown of the server, by executing the command to stop the container itself.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;docker stop sql&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+      <description>&lt;p&gt;I haven&amp;rsquo;t seen grief,&lt;br&gt;
+I have only known that it walks quietly,&lt;br&gt;
+In and around my room.&lt;br&gt;
+And that it can see through me,&lt;br&gt;
+Like I am made of glass.&lt;/p&gt;
+&lt;p&gt;While I sleep,&lt;br&gt;
+It carefully prepares a potion,&lt;br&gt;
+Of everything bittersweet I remember,&lt;br&gt;
+And boy, it carries a big sack of cotton balls.&lt;br&gt;
+It dips them one by one, in the potion,&lt;br&gt;
+Counting carefully till hundred.&lt;br&gt;
+Then it puts my head in its lap,&lt;br&gt;
+In it&amp;rsquo;s warm lap.&lt;br&gt;
+And people who have been there,&lt;br&gt;
+Would agree, how hard it is to get out of there.&lt;br&gt;
+Anyway, grief puts my head in its lap,&lt;br&gt;
+And then carefully drops the cotton balls,&lt;br&gt;
+Gently, in my ears, shaking my head gently,&lt;br&gt;
+To make space for more.&lt;br&gt;
+When my head is full,&lt;br&gt;
+And there is still some potion left,&lt;br&gt;
+It traces them gently, from my eyes,&lt;br&gt;
+Down to my chin.&lt;br&gt;
+It&amp;rsquo;s all great, except, that it&amp;rsquo;s hard to&lt;br&gt;
+Convince people, that you were not crying.&lt;br&gt;
+You spent a night in the lap of grief.&lt;/p&gt;
+&lt;p&gt;— PD&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>I and You</title>
+      <link>https://prakashblogs.github.io/blog/post/i-and-you/</link>
+      <pubDate>Mon, 12 Sep 2022 23:59:12 +0530</pubDate>
+      <author>prakashdubey1999@gmail.com (Prakash Dubey)</author>
+      <guid>https://prakashblogs.github.io/blog/post/i-and-you/</guid>
+      
+      <description>&lt;p&gt;We ride the waves&lt;br&gt;
+I and you.&lt;br&gt;
+On a wrecked down boat&lt;br&gt;
+Far from shore.&lt;br&gt;
+We are bruised a little&lt;br&gt;
+And ready for more.&lt;br&gt;
+We make a world&lt;br&gt;
+In our heads and then&lt;br&gt;
+We put some sunlight in there&lt;br&gt;
+And some rain&lt;br&gt;
+In our world there is no-one&lt;br&gt;
+To wake us out of dream&lt;br&gt;
+There is no-one to get us&lt;br&gt;
+There are no f***ing sprints.&lt;/p&gt;
+&lt;p&gt;There is a big rewind button&lt;br&gt;
+To play the sweet memories.&lt;br&gt;
+And there is an erase button&lt;br&gt;
+to purge the bitter stories.&lt;br&gt;
+I can turn into a sparrow&lt;br&gt;
+And come flying to you.&lt;br&gt;
+This is a world I would wish for,&lt;br&gt;
+If I could start anew.&lt;/p&gt;
+&lt;p&gt;— PD&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>I Dread</title>
+      <link>https://prakashblogs.github.io/blog/post/i-dread/</link>
+      <pubDate>Mon, 12 Sep 2022 00:04:14 +0530</pubDate>
+      <author>prakashdubey1999@gmail.com (Prakash Dubey)</author>
+      <guid>https://prakashblogs.github.io/blog/post/i-dread/</guid>
+      
+      <description>&lt;p&gt;I dread 11 PM.&lt;br&gt;
+I dread happy people.&lt;br&gt;
+I dread happy people&lt;br&gt;
+Telling me happy stories&lt;br&gt;
+At 11 PM on a Monday&lt;br&gt;
+Or any day of the week.&lt;/p&gt;
+&lt;p&gt;I dread unbearable, continuous gossips&lt;br&gt;
+And I dread complete silence too&lt;br&gt;
+Silence in which I can hear&lt;br&gt;
+My poor heart sing an elegy&lt;br&gt;
+For whom? I don&amp;rsquo;t know.&lt;/p&gt;
+&lt;p&gt;I dread being hard on myself,&lt;br&gt;
+For things that were out of my control.&lt;br&gt;
+I dread falling prey&lt;br&gt;
+To the pattern in which&lt;br&gt;
+These events keep repeating.&lt;/p&gt;
+&lt;p&gt;I dread knowing&lt;br&gt;
+And I dread not knowing.&lt;br&gt;
+I dread the day when&lt;br&gt;
+My mind would declare&lt;br&gt;
+Victory over my heart&lt;br&gt;
+Or vice-versa.&lt;/p&gt;
+&lt;p&gt;I dread meeting someone&lt;br&gt;
+Whom I would want to shelter&lt;br&gt;
+Under my own skin&lt;br&gt;
+And not being able to explain it to them.&lt;/p&gt;
+&lt;p&gt;— PD&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Blind Spot</title>
+      <link>https://prakashblogs.github.io/blog/post/blind-spot/</link>
+      <pubDate>Sat, 27 Nov 2021 23:36:54 +0530</pubDate>
+      <author>prakashdubey1999@gmail.com (Prakash Dubey)</author>
+      <guid>https://prakashblogs.github.io/blog/post/blind-spot/</guid>
+      
+      <description>&lt;p&gt;It starts with the eyes, then come ears&lt;br&gt;
+Follow them tongue, nose and skin&lt;/p&gt;
+&lt;p&gt;Eyes, I read about them in science class&lt;br&gt;
+They have a blind spot, which makes sense, after all these years.&lt;br&gt;
+It happened one Saturday morning,&lt;br&gt;
+Like this one.&lt;br&gt;
+Going through an old photo album&lt;/p&gt;
+&lt;p&gt;I thought,&lt;br&gt;
+Where are they,&lt;/p&gt;
+&lt;p&gt;the people who were once visible,&lt;br&gt;
+You could touch them.&lt;br&gt;
+You saw them all over the place.&lt;br&gt;
+Where are they now, I hope they exist.&lt;br&gt;
+In the blind spot of my eyes.&lt;/p&gt;
+&lt;p&gt;— PD&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>The Kite Runner</title>
+      <link>https://prakashblogs.github.io/blog/post/2021-11-13-the-kite-runner/</link>
+      <pubDate>Sat, 13 Nov 2021 00:00:00 +0000</pubDate>
+      <author>prakashdubey1999@gmail.com (Prakash Dubey)</author>
+      <guid>https://prakashblogs.github.io/blog/post/2021-11-13-the-kite-runner/</guid>
+      
+      <description>&lt;p&gt;Finished reading this book around a month ago, it was hard to put it down. And it was equally hard to write a review without putting too much details of the story, which would inadvertently creep in. Mostly because it grasped me emotionally, and only after a month or so, this is my third attempt to write a short review.&lt;/p&gt;
+&lt;p&gt;Story set in 1970s Kabul, narrator Amir comes from a rich family, he lives with his father (Baba) in his house. They have a servant Ali who also lives with his family in a hut in the backyard of their house. Ali&amp;rsquo;s family comprises of himself and his son Hassan. Amir and Hassan are almost of equal age and hence they make a good company, infact they are like brothers who have grown up together, and all of their childhood memories are of moments which they have spent together.&lt;/p&gt;
+&lt;p&gt;Amir&amp;rsquo;s mother died while giving birth to him, which he has made peace with. His father is a man of high social status and has high expectations from Amir, but Amir as a kid craves for his father&amp;rsquo;s love, which he is unable to see in his father&amp;rsquo;s guidance for him to excell in sports, win the yearly kite fighting tournament.&lt;/p&gt;
+&lt;p&gt;Despite growing side by side, there is a big difference between Amir and Hassan which is they come from the two extremes of the society. Amir is a &amp;ldquo;royal blooded&amp;rdquo; pashtun, whereas Hassan is a socially downcast Hazara, who are Shia muslims and have suffered tyrannies on the hands of Pashtuns for many years. This difference is known to Amir, only because other people taunt him when he is seen playing with Hassan. The two boys are frequently bullied by Assef and his friends, who think that Hazara have brought a bad name to Afghanistan, and that they have polluted the pure Afghan blood (Nazi mindset). Amir&amp;rsquo;s father is a man who has not been frenzied with these crazy ideas and has an utmost respect for human relationships which transcend these borders, he is a man of words and a person who everyone looks up to in time of need. He loves Hassan equally as Amir, and this love for a servant&amp;rsquo;s son is incomprehensible for the young boy, who gets jealous and sad at the same time, and in those moments he feels like he is guilty of killing his mother and that his father thinks the same. Amir is sensitive and wants to feel more connected to his father, but it does not happen. Instead, his father&amp;rsquo;s friend Rahim Khan lends a hand to him when he needs an elder who would understand him. His biggest fear is his father doubting him and him not being able to prove his worth to his father. When he gets a chance to win his father&amp;rsquo;s heart, that chance is ruined completely by sick twist of fate. So much so, that it separates Ali from his father, after 40 years of being together.&lt;/p&gt;
+&lt;p&gt;This is story of a boy who has an unbound faith in  God, a boy who accepts happily whatever fate brings him.&lt;/p&gt;
+&lt;p&gt;This is the story of a boy who grows up with self doubt and a desire for his father&amp;rsquo;s tender love and attention. A boy who hates himself for what he has done, for not being able to stand up to bullies.&lt;/p&gt;
+&lt;p&gt;So later in his life when he gets a chance to make things good, he jumps at it.&lt;/p&gt;
+&lt;p&gt;The author&amp;rsquo;s writing style is lucid and it holds your attention easily.&lt;/p&gt;
+&lt;p&gt;🚨 Spoiler Alert ⚠&lt;/p&gt;
+&lt;p&gt;The story has a lot of twists and turns, which keep the reader&amp;rsquo;s feet off the ground. One of them is returning of Hassan&amp;rsquo;s mother, Sanauber. She had eloped after Hassan was born, because he had a scarred face like his father, Ali. Sanauber blamed Ali for everything bad. But she returns after 23 years as a old lady, with beaten up face. Other twist comes, when Rahim Khan, Baba&amp;rsquo;s old friend reveals a big secret to Amir long after Baba&amp;rsquo;s death, which is that Hassan and Amir were half brothers, and that answers Amir&amp;rsquo;s long held question, why would Baba care about Hassan so much??&lt;/p&gt;
+&lt;p&gt;Amir - A boy growing up in Kabul in 1970s. Also the narrater of the story.&lt;/p&gt;
+&lt;p&gt;Baba - Amir&amp;rsquo;s father. A rich man with a respectable position in society.&lt;/p&gt;
+&lt;p&gt;Ali - Their servant. He suffers from polio and also has some scars on his face.&lt;/p&gt;
+&lt;p&gt;Hassan - Ali&amp;rsquo;s son. They come from Hazara tribes of Afghanistan. He is the only friend of Amir. They live on the same property. Ali and Hassan have a small hut in the backyard. He cannot read or write, so Amir reads him stories from books, and likes to play by changing the story, but Hassan is too naive to understand that he is being tricked.&lt;/p&gt;
+&lt;p&gt;Rahim Khan - Baba&amp;rsquo;s dear friend. Amir is fond of him as a child.&lt;/p&gt;
+&lt;p&gt;Sanaubar - Ali&amp;rsquo;s wife, who eloped after Hassan was born. Apparently because of their child&amp;rsquo;s scarred face, because Ali had scars.&lt;/p&gt;
+&lt;p&gt;Assef - A boy older than Amir and Hassan. The two boys are frequently bullied by Assef and his friends, who think that Hazaras have brought a bad name to Afghanistan, and that they have polluted the pure Afghan blood (Nazi mindset).&lt;/p&gt;
+&lt;p&gt;Soraya - Amir&amp;rsquo;s wife. Daughter of General and Jamila.&lt;/p&gt;
+&lt;p&gt;Sohrab - Hassan&amp;rsquo;s son, growing up in an orphanage in Afghanistan, after Hassan and his wife are shot by Taliban.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://prakashdubeypd.files.wordpress.com/2021/11/img_20211113_201158.jpg?w=769&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://prakashdubeypd.files.wordpress.com/2021/11/image_editor_output_image557790015-1636823255541.jpg?w=663&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://prakashdubeypd.files.wordpress.com/2021/11/image_editor_output_image1693933298-1636823308381.jpg?w=768&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/img_20211113_201340.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/img_20211113_201344.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://prakashdubeypd.files.wordpress.com/2021/11/image_editor_output_image-131931707-1636823353503.jpg?w=628&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/img_20211113_201512.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://prakashdubeypd.files.wordpress.com/2021/11/image_editor_output_image-16952299-1636823426947.jpg?w=768&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://prakashdubeypd.files.wordpress.com/2021/11/image_editor_output_image1336876243-1636823455753.jpg?w=768&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://prakashdubeypd.files.wordpress.com/2021/11/image_editor_output_image-1596731419-1636823481791.jpg?w=702&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Author - Khaled Hosseini&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>ग़ज़ल - फ़ैसले का वक़्त</title>
+      <link>https://prakashblogs.github.io/blog/post/%E0%A5%9A%E0%A5%9B%E0%A4%B2-%E0%A5%9E%E0%A5%88%E0%A4%B8%E0%A4%B2%E0%A5%87-%E0%A4%95%E0%A4%BE-%E0%A4%B5%E0%A5%98%E0%A5%8D%E0%A4%A4/</link>
+      <pubDate>Tue, 19 Oct 2021 00:00:00 +0000</pubDate>
+      <author>prakashdubey1999@gmail.com (Prakash Dubey)</author>
+      <guid>https://prakashblogs.github.io/blog/post/%E0%A5%9A%E0%A5%9B%E0%A4%B2-%E0%A5%9E%E0%A5%88%E0%A4%B8%E0%A4%B2%E0%A5%87-%E0%A4%95%E0%A4%BE-%E0%A4%B5%E0%A5%98%E0%A5%8D%E0%A4%A4/</guid>
+      
+      <description>&lt;p&gt;फ़ैसले का वक़्त तो कल पर ही टलता रह गया&lt;br&gt;
+दुनिया के साँचे में मैं चुपचाप ढलता रह गया&lt;/p&gt;
+&lt;p&gt;खिड़कियों से छन के आती धूप से जागा हुआ&lt;br&gt;
+*ख़्वाबीदा आँखों को अपनी मैं मसलता रह गया&lt;/p&gt;
+&lt;p&gt;उठ के महफ़िल से मेरी सब यार अपने घर गए&lt;br&gt;
+एक अकेला मैं दिये के साथ जलता रह गया&lt;/p&gt;
+&lt;p&gt;क्यों *किताब-ए-माज़ी को ले कर मैं बारिश में रहा&lt;br&gt;
+*हर्फ़ सारे मिट गए बस एक धुँधलका रह गया&lt;/p&gt;
+&lt;p&gt;मेरे घर को जाती दिन की आखिरी वो ट्रेन थी&lt;br&gt;
+जिसपे मैं कुछ सोंच कर चढ़ने से डरता रह गया&lt;/p&gt;
+&lt;p&gt;एक ख़त उसने मुझे चमकीली स्याही से लिखा&lt;br&gt;
+पढ़के जिसको ख़्वाब में जुगनू पकड़ता रह गया&lt;/p&gt;
+&lt;p&gt;― प्रकाश&lt;/p&gt;
+&lt;p&gt;[ ख़्वाबीदा - dreamy,&lt;br&gt;
+किताब-ए-माज़ी - book of past,&lt;br&gt;
+हर्फ़ - letters ]&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Wings of Fire</title>
+      <link>https://prakashblogs.github.io/blog/post/2021-10-15-wings-of-fire/</link>
+      <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
+      <author>prakashdubey1999@gmail.com (Prakash Dubey)</author>
+      <guid>https://prakashblogs.github.io/blog/post/2021-10-15-wings-of-fire/</guid>
+      
+      <description>&lt;p&gt;Started my journey of reading non-fiction and autobiographical books with this gem. Finished reading it today, and coincidentally it&amp;rsquo;s author&amp;rsquo;s birthday.&lt;/p&gt;
+&lt;p&gt;The author is a person that every Indian is well aware of, as the former President of India, and as the &amp;ldquo;missile man of India&amp;rdquo;. After reading this book I came to a realisation that there words fall short to describe his contribution to our country in the field of defense and space science.&lt;/p&gt;
+&lt;p&gt;Book starts with the author recalling his childhood memories, days spent in Rameshvaram, in an amicable neighbourhood. Later he shares with us the stories of his college days and subsequently his broken dream of being an air force pilot. However, he moved ahead unfettered by the failures and went on to be the managers and directors of various crucial projects which shaped the future of India. His focus was on development of fully indigenous rockets, missiles, Satellite Launch Vehicles, etc. which would bring India at par with developed nations in terms of defense and space exploration, while not putting much financial burden on the developing nation. It was a time when the mass couldn&amp;rsquo;t understand why so much amount was being spent on these programs while majority of the population was toiling under the problems of malnutrition, poor sanitation etc. These circumstances obviously led to people doubting the success and usefulness of these programs, but with strong determination and clarity of vision Dr. Kalam proved that India is a force to reckon.&lt;/p&gt;
+&lt;p&gt;One can go on talking about his contributions and his qualities as a human being, so the less said the better.&lt;/p&gt;
+&lt;p&gt;I observed that throughout the book there is almost no mention of any female except Late Smt. Indira Gandhi, and author&amp;rsquo;s mother and sister. I wonder the fields of defense and rocket science were closed for females in those times, and I hope this scenario has changed since then.&lt;/p&gt;
+&lt;p&gt;I couldn&amp;rsquo;t stop myself from sharing some excerpts from the book.&lt;/p&gt;
+&lt;p&gt;Happy Dussehra!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://prakashdubeypd.files.wordpress.com/2021/10/img_20211015_185018.jpg?w=769&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/img_20211015_184032.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/img_20211015_183903.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/img_20211015_183709.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/img_20211015_183538.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/img_20211015_183439.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/img_20211015_183349.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Author - Dr. APJ Abdul Kalam&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>अनपढ़</title>
+      <link>https://prakashblogs.github.io/blog/post/%E0%A4%85%E0%A4%A8%E0%A4%AA%E0%A5%9D/</link>
+      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
+      <author>prakashdubey1999@gmail.com (Prakash Dubey)</author>
+      <guid>https://prakashblogs.github.io/blog/post/%E0%A4%85%E0%A4%A8%E0%A4%AA%E0%A5%9D/</guid>
+      
+      <description>&lt;p&gt;(पाषाण-युगीन मन की अभिलाषा)&lt;/p&gt;
+&lt;p&gt;पढ़ चुका हूँ हिंदी, अंग्रेजी और गणित,&lt;br&gt;
+पढ़ा है भौतिकी, भूगोल और इतिहास,&lt;br&gt;
+लेकिन वैसे ही, जैसे दीमक पढ़ते हैं..&lt;/p&gt;
+&lt;p&gt;गोया कि, मुझे मालूम है भौतिकी के नियम&lt;br&gt;
+स्थूल और सुक्ष्म वस्तुओं के लिए भिन्न हैं,&lt;br&gt;
+पर यह नहीं जानता कि भौतिकी के नियम&lt;br&gt;
+प्रेम पर भी लागू होते हैं, जो इन दोनों से परे है।&lt;/p&gt;
+&lt;p&gt;पढ़े हैं भाषा और व्याकरण के नियम, पर यह&lt;br&gt;
+नहीं समझ पाया कि दुलार और फटकार में याचक&lt;br&gt;
+की भाषा और व्याकरण की क्या भूमिका है..&lt;/p&gt;
+&lt;p&gt;कितना सरल हूँ, कि बुद्ध की निर्वाण कथा पढ़कर&lt;br&gt;
+चाहता हूँ कि वह ज्ञान और वैराग्य मुझे बिना परिश्रम&lt;br&gt;
+ही प्राप्त हो जावे..&lt;/p&gt;
+&lt;p&gt;दीमकों-सा किताब पढ़ कर, अनपढ़ ही रहना चाहता हूँ,&lt;br&gt;
+कुँए की मुँडेर पर बैठ कर सुनना चाहता हूँ घड़े और पानी का संगीत&lt;/p&gt;
+&lt;p&gt;― प्रकाश&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>होगा कोई ऐसा भी कि ग़ालिब को न जाने</title>
+      <link>https://prakashblogs.github.io/blog/post/%E0%A4%B9%E0%A5%8B%E0%A4%97%E0%A4%BE-%E0%A4%95%E0%A5%8B%E0%A4%88-%E0%A4%90%E0%A4%B8%E0%A4%BE-%E0%A4%AD%E0%A5%80-%E0%A4%95%E0%A4%BF-%E0%A5%9A%E0%A4%BE%E0%A4%B2%E0%A4%BF%E0%A4%AC-%E0%A4%95%E0%A5%8B-%E0%A4%A8-%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A5%87/</link>
+      <pubDate>Sun, 27 Dec 2020 00:00:00 +0000</pubDate>
+      <author>prakashdubey1999@gmail.com (Prakash Dubey)</author>
+      <guid>https://prakashblogs.github.io/blog/post/%E0%A4%B9%E0%A5%8B%E0%A4%97%E0%A4%BE-%E0%A4%95%E0%A5%8B%E0%A4%88-%E0%A4%90%E0%A4%B8%E0%A4%BE-%E0%A4%AD%E0%A5%80-%E0%A4%95%E0%A4%BF-%E0%A5%9A%E0%A4%BE%E0%A4%B2%E0%A4%BF%E0%A4%AC-%E0%A4%95%E0%A5%8B-%E0%A4%A8-%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A5%87/</guid>
+      
+      <description>&lt;p&gt;आज 27 दिसंबर, बहुत लोगों के लिए आम सा दिन है…मगर जो शख्स शायरी से ताल्लुक़ रखते हैं उनके लिए आज का दिन बेहद खास है। आज है भारत में जन्मे सबसे मक़बूल और महान शायर, मिर्ज़ा ग़ालिब की यौम-ए-पैदाइश! ग़ालिब का जन्म 1797 में आगरा में हुआ, बचपन में ही सर से बाप का साया उठ जाने के बाद दिल्ली जाना हुआ, जहाँ इनकी ज़िन्दगी का एक बड़ा दौर गुज़रा। शायरी का हुनर ख़ुदा से माँग कर आये थे, सो 11 की उम्र से ही ग़ज़लें कहना शुरू कर दीं।&lt;/p&gt;
+&lt;p&gt;अपनी शायरी में दुनिया को अगर किसीने सबसे पहले आईना दिखाने की हिम्मत की है तो वो ग़ालिब ही है, कहते हैं -&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;बाज़ीचा-ए-अतफ़ाल है दुनिया मेरे आगे,&lt;br&gt;
+होता है शब-ओ-रोज़ तमाशा मेरे आगे..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;सब्ज़ा-ओ-गुल कहाँ से आये हैं,&lt;br&gt;
+अब्र क्या चीज़ है हवा क्या है..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;ऐसे सवाल भी शायरी में सबसे पहले ग़ालिब ने ही किये हैं।&lt;/p&gt;
+&lt;p&gt;ग़ालिब की महानता सिर्फ भाषा के प्रयोग या खूबसूरत शायरी करने से नहीं है, बल्कि ज़िन्दगी की जो उलझन है, दुनिया के रस्म-ओ-रिवाज़ हैं , उसको सबके सामने अपने अनोखे अंदाज में पेश किया है। ग़ालिब की शायरी सिर्फ इश्किया शायरी नहीं है, बल्कि फ़लसफ़ा(philosophy) और तसव्वुफ़(sufism) की अपनी एक दुनिया उनके शेरों में मौजूद है, बक़ौल ग़ालिब -&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;ये मसाइल-ए-तसव्वुफ़, ये तेरा बयान &amp;lsquo;ग़ालिब&amp;rsquo;,&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;तुझे हम वली समझते, जो न बादा-ख़्वार होता..!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;यानी, दुनिया कहती है कि ग़ालिब, तू तसव्वुफ़ जैसे मसाइल पे कितनी बड़ी-बड़ी बातें करता है..तू अगर शराब न पीता तो तुझे हम मौलवियों का सा दर्जा देते.&lt;/p&gt;
+&lt;p&gt;उनकी एक ग़ज़ल का शेर है -&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;आते हैं ग़ैब से ये मज़ामी ख़याल में,&lt;br&gt;
+ग़ालिब सरीर-ए-ख़ामा, नवा-ए-सरोश है..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;यानी, मेरे ख़याल में ये मज़ामीन(writings) किसी दूसरी दुनिया से आते हैं, मेरे कलम की आवाज़ ऐसी है जैसे ख़ुदा की आवाज़ हो.&lt;/p&gt;
+&lt;p&gt;शायरी में ग़ालिब खुद के लिए कहते हैं -&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;हैं और भी दुनिया में सुख़नवर बहुत अच्छे,&lt;br&gt;
+कहते हैं कि &amp;lsquo;ग़ालिब&amp;rsquo; का है अंदाज़-ए-बयाँ और..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;आगे जब इन पर जान बूझ कर मुश्किल शेर कहने का इल्ज़ाम लगाया जाता है तो कहते हैं -&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;न सताइश की तमन्ना न सिले की परवाह,&lt;br&gt;
+गर नहीं हैं मेरे अशआर में मानी न सही..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;यही बात एक और जगह कहते हैं, मगर फ़ारसी में -&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;मुश्किल है जिबस क़लाम मेरा, ऐ दिल,&lt;br&gt;
+सुन-सुन कर जिसे सुख़नवरान-ए-क़ामिल,&lt;br&gt;
+आसाँ कहने की करते हैं फ़रमाइश,&lt;br&gt;
+गोयम मुश्किल, वगरना गोयम मुश्किल..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;यानी, मेरा कलाम मुश्किल है, ऐ दिल…तमाम शायरों का कहना है कि आसान लहज़े में अपनी बात कहूँ…मैं कहता हूँ तो मुश्किल है, नहीं कहता तो मुश्किल है..&lt;/p&gt;
+&lt;p&gt;ग़ालिब की इश्किया शायरी भी किसी से कम नहीं है, मिसाल के तौर पे देखें -&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;दिल से तेरी निगाह जिगर तक उतर गई,&lt;br&gt;
+दोनों को इक अदा में रज़ामंद कर गई..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;वो आये घर में हमारे ख़ुदा की क़ुदरत है,&lt;br&gt;
+कभी हम उनको कभी अपने घर को देखते हैं..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;ख़त लिखेंगे, गरचे मतलब कुछ न हो,&lt;br&gt;
+हम तो आशिक़ हैं तुम्हारे नाम के..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;सोहबत में ग़ैर की न पड़ी हो कहीं ये ख़ू,&lt;br&gt;
+देने लगा है बोसा बग़ैर इल्तिज़ा किये..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;नींद उसकी है, दिमाग उसका है, रातें उसकी हैं,&lt;br&gt;
+तेरी ज़ुल्फें जिसके बाज़ू पर परीशां हो गयीं..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;करने गए थे उनसे तग़ाफ़ुल का हम गिला,&lt;br&gt;
+की एक ही निगाह कि बस खाक़ हो गए..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;अपने मेहबूब से ही नहीं, उसके ख़याल से भी बेइंतहा मोहब्बत करते हैं -&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;संभलने दे मुझे ऐ नाउम्मीदी क्या क़यामत है,&lt;br&gt;
+कि दामन-ए-ख़याल-ए-यार छूटा जाए है मुझसे..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;अपनी शायरी के अलावा अपने स्वाभिमानी व्यक्तित्व के लिये जाने जाते थे। अपने लिए कहते हैं -&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;पूछते हैं वो कि &amp;lsquo;ग़ालिब&amp;rsquo; कौन है,&lt;br&gt;
+कोई बतलाये कि हम बतलायें क्या..!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;आगे ग़ालिब कहते हैं कि मेरे बाद ज़माने में दूसरा सच्चा आशिक़ नहीं होगा, मेरे मरने पे इश्क़ का शोला राख के रूप में काला लिबास पहन लेगा..&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;शमा बुझती है तो उसमें से धुँआ उठता है,&lt;br&gt;
+शोला-ए-इश्क़ सियहपोष हुआ मेरे बाद..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;फिर ख़ुदा के सामने भी न झुकने की बात करते हुए कहते हैं कि, हम बंदगी में भी आज़ाद मिजाज़ के हैं, ऐसे कि हमने अगर क़ाबा का दर बंद देखा तो हम भी न रुके, वापस आ गए -&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;बंदगी में भी वो आज़ाद-ओ-ख़ुदबीं हैं कि हम,&lt;br&gt;
+उल्टे फिर आये दर-ए-क़ाबा अगर वा न हुआ..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;फिर जन्नत को मुँह दिखता हुआ कहते हैं कि सिवाए उस शराब के जिसमें मुश्क़ की खुशबू हो, ऐसी कोई चीज़ नहीं कि मुझको जन्नत का तलबगार बनाये -&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;वो चीज़ जिसके लिए हमको हो बहिश्त अज़ीज़,&lt;br&gt;
+सिवाए बादा-ए-गुलफ़ाम-ए-मुश्क़बू क्या है..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;ग़ालिब की ज़िन्दगी में दिल्ली के जो हालात हैं, वो इनकी लेखनी में खूब देखने को मिलते हैं, इन्होंने सैकड़ों ख़त लिखे हैं, जिनमें बस दिल्ली का बयान है..कोई आदमी अपने शहर से इतना प्यार शायद ही करता हो जितना ग़ालिब दिल्ली से प्यार करते हैं। उसपर सितम ये है कि इनकी आँखों के सामने ही दिल्ली बर्बाद होती है। 1739 में नादिर शाह का हमला, बाद में 1857 का ग़दर। 1857 के ग़दर का दर्द ग़ालिब अपने ख़तों में इस तरह बयान करते हैं-&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;अंग्रेज की क़ौम से जो रूसियाह के हाथों कत्ल हुए,&lt;br&gt;
+उसमें कोई मेरा उम्मीदगाह था और कोई मेरा शागिर्द,&lt;br&gt;
+हाये, इतने यार मरे कि जो अब मैं मरूँगा,&lt;br&gt;
+तो मेरा कोई रोने वाला न होगा..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;इस सब के अलावा ग़ालिब को इस बात का दुख रहा कि उनकी कद्र किसी ने नहीं जानी, उनके क़लाम को मुश्किल कह कर दरकिनार कर दिया गया, और इतनी महरूमियाँ देखनी पड़ी जो किसी के भी हौसले पस्त कर दें..पर इस शायर ने चुनौतियों का हँस कर मुक़ाबला किया और दिल के सोज़ को लफ़्ज़ों में पिरो कर अमर बना दिया..&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;रंज से ख़ूगर हुआ इंसाँ तो मिट जाता है रंज,&lt;br&gt;
+मुश्किलें मुझ पर पड़ीं इतनी कि आसाँ हो गईं..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;इशरत-ए-क़तरा है दरिया में फ़ना हो जाना,&lt;br&gt;
+दर्द का हद से गुज़रना है दवा हो जाना..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;न था कुछ तो ख़ुदा था कुछ न होता तो ख़ुदा होता,&lt;br&gt;
+डुबोया मुझ को होने ने न होता मैं तो क्या होता..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;अपने आगे के शायरों में बस मीर और बेदिल को ही इन्होंने ऊँचा मक़ाम दिया है। इनका फ़ारसी क़लाम उर्दू के मुक़ाबले काफ़ी बड़ा है, उर्दू क़लाम &amp;lsquo;दीवान-ए-ग़ालिब&amp;rsquo; के नाम से शाया है।&lt;/p&gt;
+&lt;p&gt;ग़ालिब का नाम उर्दू शायरी तक सीमित नहीं है, बल्कि पूरी दुनिया उनके शायरी को मूलभाषा में, या तर्जुमा पढ़ कर लुत्फ़ उठाती है, और आज दुनिया को अपने इस हीरे पर नाज़ है. बक़ौल ग़ालिब -&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;और तो रखने को हम देहर में क्या रखते थे,&lt;br&gt;
+मगर एक शेर में अंदाज़-ए-रसा रखते थे..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;ज़िन्दगी अपनी जब इस शक़्ल से गुज़री &amp;lsquo;ग़ालिब&amp;rsquo;,&lt;br&gt;
+हम भी क्या याद रखेंगे कि ख़ुदा रखते थे..&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;― प्रकाश&lt;/p&gt;
 </description>
       
     </item>
