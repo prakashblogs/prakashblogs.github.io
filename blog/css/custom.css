@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Special+Elite&display=swap');
+
+#wrapper {
+  font-family: 'Special Elite', cursive;
+  font-stretch: expanded;
+  background-image: url("pat1.jpg");
+}
